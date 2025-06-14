@@ -9,7 +9,8 @@ pipeline {
                     // Navegar al directorio donde se encuentra tu docker-compose.yml si no está en la raíz del repositorio.
                     // Por ejemplo, si está en una subcarpeta 'docker/':
                     sh 'cd /home/docker-server/jenkins/jenkins/workspace/clf'                
-                    sh 'docker-compose down -v'
+                   // ¡ELIMINA LA OPCIÓN '-v' para que los volúmenes no se borren!
+                    sh 'docker-compose down' // <--- CAMBIO IMPORTANTE AQUÍ
                     sh 'sleep 15' // Ajusta el tiempo según lo que tarden tus servicios en arrancar.
                 }
             }
